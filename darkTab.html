@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+
+        body{
+            transition: .3s ease-in-out;
+        }
+        .caption{
+            margin:20px;
+            padding:20px;
+            font-size: 30px;
+            font-family: 'comic sans ms';
+            text-transform: capitalize;
+        }
+
+        input[type="checkbox"]{
+            appearance: none;
+            width: 60px;
+            height: 30px;
+            background-color:#7B8FA1 ;
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked{
+          background-color: #2F58CD;
+          transition: .3s ease-in-out;
+        }
+ 
+        input[type="checkbox"]::before{
+          content:'';
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border-radius: 20px;
+          top:5px;
+          left:4px;
+        }
+
+        input[type="checkbox"]:checked::before{
+          transform: translateX(30px);
+          transition: .3s ease-out ;
+        }
+
+        .gelap{
+            background-color: #1D1919;
+            color: white;
+        }
+
+        table{
+            width: 50%;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            padding:5px;
+            margin: 30px;
+            font-size: 18px;
+            font-family:'comic sans ms';
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        caption{
+            font-family: 'comic sans ms';
+            font-size: 27px;
+            font-weight: bold;
+        }
+        
+        tr,td{
+            border-radius: 15px;
+            border:1px solid black;
+            border-spacing: 10px;
+            width: 30%;
+            height: 50px;
+        }
+
+        tr td:hover{
+            background-color:#3282B8;
+            transition: .2s ease-in-out;
+        }
+        .darkTable{
+            color: black;
+            background-color:#0F4C75;
+        }
+        .ubahCaption{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="caption">
+        <h1>mode dark/light</h1>
+        <p>klik tombol untuk mengaktifkan dark mode</p>
+    </div>
+    <input type="checkbox" onclick="modeUbahDark()">
+    <table id="table">
+        <caption id="cpt">Daftar Siswa kelas 10 SMEA</caption>
+        <tr>
+            <th>Nama Siswa</th>
+            <th>Jenis kelamin</th>
+            <th>Jurusan</th>
+        </tr>
+        <tr>
+            <td>Aji setiawan</td>
+            <td>L</td>
+            <td>Rpl</td>
+        </tr>
+        <tr>
+            <td>Aditya</td>
+            <td>L</td>
+            <td>RPL</td>
+        </tr>
+        <tr>
+            <td>Indah</td>
+            <td>P</td>
+            <td>Perhotelan</td>
+        </tr>
+    </table>
+    <script>
+        function modeUbahDark(){
+
+            let dark = document.body;
+            let cpt = document.getElementById('cpt');
+            let ubahElementTable = document.getElementById('table');
+
+            dark.classList.toggle("gelap");
+            ubahElementTable.classList.toggle("darkTable");
+            cpt.classList.toggle("ubahCaption");
+        }
+    </script>
+</body>
+</html>
